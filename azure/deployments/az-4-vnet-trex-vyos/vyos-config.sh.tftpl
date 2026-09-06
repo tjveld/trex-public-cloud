@@ -1,0 +1,27 @@
+#!/bin/vbash
+# First-boot VyOS bootstrap, passed in as custom_data (main.tf's module
+# "vyos") and rendered by Terraform's templatefile(). Only sets up interface
+# addressing and the static routes needed to route TRex's spoofed
+# client/server ranges (16.0.0.0/8, 48.0.0.0/8) out lan1 - Azure's own UDR
+# on the "firewall" subnet (hub_fw_rt) does the rest, delivering them to
+# trex1/trex2's real private IPs.
+#
+# `[VERIFY — untested: cloud-init user-data execution on this marketplace
+# image, and whether vyos-configd is ready this early in first boot]`
+source /opt/vyatta/etc/functions/script-template
+
+configure
+
+set interfaces ethernet eth0 description 'WAN'
+set interfaces ethernet eth0 address dhcp
+
+set interfaces ethernet eth1 description 'LAN - Trex transit'
+set interfaces ethernet eth1 address dhcp
+
+set protocols static route 16.0.0.0/8 next-hop 10.100.0.1
+set protocols static route 48.0.0.0/8 next-hop 10.100.0.1
+set protocols static route 10.10.0.0/16 next-hop 10.100.0.1
+
+commit
+save
+exit
