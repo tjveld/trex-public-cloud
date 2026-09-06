@@ -8,10 +8,7 @@ and failover behaviour.
 
 Every environment is provisioned from code with [OpenTofu](https://opentofu.org/)
 (Terraform-compatible, MPL-2.0). Deployments are small, independent stacks
-that can be brought up, tested, and destroyed on their own, see
-[`notes/iac-framework-and-design-notes.md`](notes/iac-framework-and-design-notes.md)
-for the reasoning behind that (short version: this is a part-time project,
-and NVA/firewall compute is expensive to leave running).
+that can be brought up, tested, and destroyed on their own
 
 ---
 
