@@ -35,6 +35,7 @@ layer, that's a deliberate choice, not an oversight, because the two
 platforms diverge meaningfully at the resource level (accelerated
 networking toggle vs. NIC-type-driven ENA, VPC peering vs. VNet peering
 route propagation, etc.).
+
 ---
 
 ## Prerequisites
