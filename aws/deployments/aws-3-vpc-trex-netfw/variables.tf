@@ -17,7 +17,7 @@ variable "environment" {
 variable "project_name" {
   type        = string
   description = "Project name for resource naming"
-  default     = "comp70046"
+  default     = "trex"
 }
 
 variable "tags" {

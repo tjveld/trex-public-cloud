@@ -17,7 +17,7 @@ variable "location" {
 variable "project_name" {
   type        = string
   description = "Project name for resource naming"
-  default     = "comp70046"
+  default     = "trex"
 }
 
 variable "tags" {
@@ -29,7 +29,7 @@ variable "tags" {
 variable "vm_admin_username" {
   type        = string
   description = "Admin username for VMs deployed in this configuration"
-  default     = "tjveld"
+  default     = "trex"
 }
 
 variable "vm_admin_password" {
