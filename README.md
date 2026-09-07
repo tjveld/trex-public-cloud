@@ -80,8 +80,7 @@ Every deployment also resolves the *deployer's own current public IP* at
 `apply` time (via the `http` provider) and scopes management-plane access
 (SSH/RDP, NVA admin UIs) to just that address, there's no standing broad
 inbound exposure at any point. Re-running `apply` re-resolves the IP and
-naturally revokes the previous one. See §4 of
-[`notes/iac-framework-and-design-notes.md`](notes/iac-framework-and-design-notes.md).
+naturally revokes the previous one.
 
 Deployments build on each other in number order within a platform (e.g.
 `az-3-vnet-trex-azfw` is `az-2-vnet-trex` plus Azure Firewall inline) but
